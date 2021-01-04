@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('users', '0001_initial'),
+        ('payments', '0001_initial'),
     ]
 
     operations = [
@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('type_name', models.CharField(max_length=15, verbose_name='Тип пользователя')),
                 ('access_level', models.IntegerField(verbose_name='Уровень доступа')),
-                ('user_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='users.user')),
+                ('user_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='payments.user')),
             ],
         ),
     ]
