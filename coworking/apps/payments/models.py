@@ -9,7 +9,7 @@ class Payment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.date
+        return str(self.booking) + ' Дата оплаты: ' + str(self.date) + ' Размер оплаты: ' + str(self.size)
 
     class Meta:
         verbose_name = 'Оплату'
@@ -21,7 +21,7 @@ class Payment_status(models.Model):
     payment = models.ForeignKey(Payment, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.status
+        return str(self.payment) + ' Статус: ' + str(self.status)
 
     class Meta:
         verbose_name = 'Статус оплыты'

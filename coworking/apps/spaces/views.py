@@ -1,4 +1,9 @@
 from django.http import HttpResponse
+from .models import Space
+
 
 def index(request):
-    return HttpResponse('Spaces works!')
+    space_features = Space.objects.filter(
+        name='Райский остров'
+    ).values('name', 'feature')
+    return HttpResponse(space_features)

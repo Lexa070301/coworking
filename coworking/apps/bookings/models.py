@@ -9,7 +9,8 @@ class Booking(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.start_date
+        return str(self.space) + ': ' + 'Начало: ' + str(self.start_date) + ' Конец: ' + str(
+            self.end_date) + ' Пользователь: ' + str(self.user)
 
     class Meta:
         verbose_name = 'Бронь'
@@ -18,10 +19,10 @@ class Booking(models.Model):
 
 class Booking_status(models.Model):
     status = models.CharField('Статус', max_length=15)
-    payment = models.ForeignKey(Booking, on_delete=models.CASCADE)
+    booking = models.ForeignKey(Booking, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.status
+        return str(self.booking) + ' Статус: ' + str(self.status)
 
     class Meta:
         verbose_name = 'Статус бронирования'
