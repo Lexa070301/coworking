@@ -1,16 +1,17 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.conf import settings
+# from django.contrib.auth.models import User
+# from coworking.apps.main.models import User
 
 
 class Booking(models.Model):
     start_date = models.DateTimeField('Дата начала брони')
     end_date = models.DateTimeField('Дата окончания брони')
     space = models.ForeignKey('spaces.Space', on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.space) + ': ' + 'Начало: ' + str(self.start_date) + ' Конец: ' + str(
-            self.end_date) + ' Пользователь: ' + str(self.user)
+        return str(self.space)
 
     class Meta:
         verbose_name = 'Бронь'
@@ -22,7 +23,7 @@ class Booking_status(models.Model):
     booking = models.ForeignKey(Booking, on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.booking) + ' Статус: ' + str(self.status)
+        return str(self.status)
 
     class Meta:
         verbose_name = 'Статус бронирования'

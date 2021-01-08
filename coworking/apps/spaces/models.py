@@ -1,6 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import User
-
+# from django.contrib.auth.models import User
+from django.conf import settings
 
 class Feature(models.Model):
     feature = models.CharField('Фича', max_length=30)
@@ -34,10 +34,10 @@ class Rating(models.Model):
     rating = models.IntegerField('Рейтинг')
     review = models.TextField('Отзыв')
     space = models.ForeignKey(Space, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.space) + ': ' + str(self.rating)
+        return str(self.rating)
 
     class Meta:
         verbose_name = 'Рейтинг'

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.generics import ListCreateAPIView
 from rest_framework.generics import RetrieveUpdateDestroyAPIView
 
-from django.contrib.auth.models import User
+from .models import User
 from .serializers import UserSerializer
 
 
