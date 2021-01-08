@@ -9,10 +9,28 @@ class SpaceResource(resources.ModelResource):
         model = Space
 
 
+class RatingResource(resources.ModelResource):
+    class Meta:
+        model = Rating
+
+
+class FeatureResource(resources.ModelResource):
+    class Meta:
+        model = Feature
+
+
 class SpaceAdmin(ImportExportModelAdmin):
     resource_class = SpaceResource
 
 
+class RatingAdmin(ImportExportModelAdmin):
+    resource_class = RatingResource
+
+
+class FeatureAdmin(ImportExportModelAdmin):
+    resource_class = FeatureResource
+
+
 admin.site.register(Space, SpaceAdmin)
-admin.site.register(Rating)
-admin.site.register(Feature)
+admin.site.register(Rating, RatingAdmin)
+admin.site.register(Feature, FeatureAdmin)
