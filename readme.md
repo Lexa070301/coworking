@@ -10,4 +10,4 @@ Password: admin
 
 ###### Landing
 
-[http://coworking2.std-944.ist.mospolytech.ru](http://coworking2.std-944.ist.mospolytech.ru)
+[Coworking - Landing](https://lexa070301.github.io/coworking/landing/)
