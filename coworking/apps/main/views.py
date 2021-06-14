@@ -7,7 +7,7 @@ from .serializers import UserSerializer
 
 
 def index(request):
-    return render(request, 'main.html')
+    return render(request, 'index.html')
 
 
 class UserView(ListCreateAPIView):
