@@ -5,6 +5,7 @@ import {Provider} from "react-redux";
 import store from "./redux/store";
 import HeaderContainer from "./components/header/HeaderContainer";
 import SpacesContainer from "./components/spaces/SpacesContainer";
+import SpaceFullContainer from "./components/spaces/SpaceFullContainer";
 
 class App extends Component {
   render() {
@@ -14,7 +15,7 @@ class App extends Component {
             <div className="App">
               <HeaderContainer/>
               <main>
-                <Route path={"/"} exact={true}>
+                <Route path={"/spaces"}>
                   <SpacesContainer/>
                 </Route>
               </main>

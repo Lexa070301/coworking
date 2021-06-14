@@ -23,4 +23,10 @@ export const spacesAPI = {
           return response.data
         });
   },
+  getSpace(index) {
+    return instance.get(`spaces/api/spaces/${index}`)
+        .then(response => {
+          return response.data
+        });
+  },
 }

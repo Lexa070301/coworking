@@ -13,11 +13,11 @@ const Header = (props) => {
   return (
       <header className={"header"}>
         <div className={"container-fluid"}>
-          <div className="header-card d-flex justify-content-between align-items-center">
-            <NavLink to={"/"}><img src={logo} className={"logo"} alt="Logo"/></NavLink>
+          <div className="header__card d-flex justify-content-between align-items-center">
+            <NavLink to={"/spaces"}><img src={logo} className={"logo"} alt="Logo"/></NavLink>
             <ul className={"menu"}>
               <li className={"menu__item"}>
-                <NavLink to={"/"} className={"menu__item__link"}>Main</NavLink>
+                <NavLink to={"/spaces"} className={"menu__item__link"}>Spaces</NavLink>
                 <NavLink to={"/test"} className={"menu__item__link"}>Test 2</NavLink>
               </li>
             </ul>

@@ -1,3 +1,5 @@
+import {spacesAPI} from "../api/api";
+
 const SET_SPACES = "SET_SPACES";
 
 let initialState = {
@@ -30,4 +32,9 @@ export const spacesReducer = (state = initialState, action) => {
   }
 }
 
-export const setSpaces = (data) => ({type: SET_SPACES, data});
+export const setSpacesAC = (data) => ({type: SET_SPACES, data});
+
+export const setSpaces = () => async (dispatch) => {
+  let response = await spacesAPI.getSpaces()
+  dispatch(setSpacesAC(response))
+}

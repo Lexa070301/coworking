@@ -31,10 +31,10 @@ ul {
 }
 
 .header {
-  padding-top: 10px;
+  padding-top: 20px;
   padding-bottom: 10px;
 
-  .header-card {
+  .header__card {
     padding: 20px;
     border-radius: 5px;
     background-color: white;
@@ -57,6 +57,10 @@ ul {
   @media screen and (max-width: 600px) {
     width: calc(100% / 2);
   }
+  a {
+    color: $dark;
+    text-decoration: none;
+  }
 }
 
 .space-card {
@@ -65,19 +69,21 @@ ul {
   box-shadow: $box-shadow;
   padding: 20px;
   text-align: left;
+  margin: 10px;
+  height: 100%;
 }
 
-.space-card-name {
-  font-size: 24px;
+.space-card__name {
+  font-size: 20px;
   font-weight: bold;
 }
 
-.space-card-param {
+.space-card__param {
   font-size: 14px;
   color: grey;
 }
 
-.space-card-description {
+.space-card__description {
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -86,4 +92,9 @@ ul {
   padding-bottom: 5px;
   border-bottom: 1px solid $grey;
   margin-bottom: 5px;
+}
+
+.spaces-block {
+  margin-left: -10px;
+  margin-right: -10px;
 }
