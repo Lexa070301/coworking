@@ -123,9 +123,14 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOGIN_REDIRECT_URL = '/'
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'coworking/static/'
 
-LOGIN_REDIRECT_URL = '/'
+STATICFILES_DIRS = [
+    BASE_DIR / "coworking/static",
+    '/var/www/static/',
+]
