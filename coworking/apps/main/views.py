@@ -3,6 +3,8 @@ from django.contrib.auth.forms import UserCreationForm
 from rest_framework.generics import ListCreateAPIView
 from rest_framework.generics import RetrieveUpdateDestroyAPIView
 from django.contrib.auth import authenticate, login
+
+from .forms import CustomUserCreationForm
 from .models import User
 from .serializers import UserSerializer
 
@@ -12,11 +14,9 @@ def index(request):
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        print('test1')
+        form = CustomUserCreationForm(request.POST)
 
         if form.is_valid():
-            print('test2')
             form.save()
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
@@ -24,7 +24,7 @@ def register(request):
             login(request, user)
             return redirect('index')
     else:
-        form = UserCreationForm()
+        form = CustomUserCreationForm()
     context = {'form': form}
     return render(request, 'registration/register.html', context)
 
