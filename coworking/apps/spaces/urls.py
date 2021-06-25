@@ -5,7 +5,8 @@ from .views import SpaceView, SingleSpaceView, RatingView, SingleRatingView, Fea
 app_name = "spaces"
 # app_name will help us do a reverse look-up latter.
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.index),
+    path('<int:pk>', views.SpaceDetailView.as_view(), name='space'),
     path('api/spaces', SpaceView.as_view()),
     path('api/spaces/<int:pk>', SingleSpaceView.as_view()),
     path('api/rating', RatingView.as_view()),

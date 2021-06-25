@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Пространства
+{% endblock %}
+
+
+
+{% block content %}
+  {% include 'header.html' %}
+  <main class="main">
+    <div class="container-fluid">
+      <h1 class="text-start">Доступные пространства</h1>
+    </div>
+    <div class="spaces-block">
+        <div class="container-fluid d-flex justify-content-start">
+          {% for el in spaces %}
+            <div class="space-card-wrap">
+              <a href="{{ el.id }}">
+                <div class="space-card">
+                  <div>
+                    <span class="space-card__name">{{ el.name }}</span>
+                  </div>
+                  <div>
+                    <p class="space-card__description">{{ el.description }}</p>
+                  </div>
+                  <div>
+                    <span class="space-card__param">Адрес: </span>
+                    <span class="space-card__param">{{ el.address }}</span>
+                  </div>
+                  <div>
+                    <span class="space-card__param">Вместимость: </span>
+                    <span class="space-card__param">{{ el.capacity }}</span>
+                  </div>
+                  <div>
+                    <span class="space-card__param">Площадь: </span>
+                    <span class="space-card__param">{{ el.area }} (м<sup>2</sup>)</span>
+                  </div>
+                  <div>
+                    <span class="space-card__param">Стоимость: </span>
+                    <span class="space-card__param">{{ el.daily_cost }} руб/день</span>
+                  </div>
+                  <div>
+                    <span class="space-card__param">Особености: </span>
+                    {% for feature in features %}
+                      {% if feature.pk == current_space %}
+                        <span class="space-card__param">{{ feature.pk }}</span>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+  </main>
+{% endblock %}

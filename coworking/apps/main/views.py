@@ -25,7 +25,7 @@ def register(request):
             return redirect('index')
     else:
         form = CustomUserCreationForm()
-    context = {'form': form}
+    context = {'form': form, 'name': 'Регистрация'}
     return render(request, 'registration/register.html', context)
 
 

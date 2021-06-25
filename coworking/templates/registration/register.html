@@ -1,19 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Register</title>
-</head>
-<body>
-<h1>Registration page</h1>
-<form action="{% url 'register' %}" method="post">
-  {% csrf_token %}
-  {% if form.errors %}
-  <span>some errors</span>
-  {% endif %}
+{% extends 'layout.html' %}
 
-  {{ form }}
-    <input type="submit" value="Register">
-</form>
-</body>
-</html>
+{% block title %}
+  {{ name }}
+{% endblock %}
+
+
+{% block content %}
+  {% include 'header.html' %}
+  <main class="main">
+    <h1 class="form-title">{{ name }}</h1>
+    <form class="mx-auto common-form" action="{% url 'register' %}" method="post">
+      {% csrf_token %}
+      {% if form.errors %}
+        <span>some errors</span>
+      {% endif %}
+
+      <label class="form-label">
+        <span>Имя</span>
+        {{ form.username }}
+      </label>
+      <label class="form-label">
+        <span>Пароль</span>
+        {{ form.password1 }}
+      </label>
+      <label class="form-label">
+        <span>Повторите пароль</span>
+        {{ form.password2 }}
+      </label>
+      <button class="btn btn-success" type="submit">Зарегистрироваться</button>
+    </form>
+  </main>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  {{ space.name }}
+{% endblock %}
+
+
+
+{% block content %}
+  {% include 'header.html' %}
+  <main class="main">
+    <div class="container-fluid">
+      <h1 class="text-start">{{ space.name }}</h1>
+      <div class="space-card single-space-card">
+        <div>
+          <span class="space-card__name">{{ space.name }}</span>
+        </div>
+        <div>
+          <p class="space-card__description">{{ space.description }}</p>
+        </div>
+        <div>
+          <span class="space-card__param">Адрес: </span>
+          <span class="space-card__param">{{ space.address }}</span>
+        </div>
+        <div>
+          <span class="space-card__param">Вместимость: </span>
+          <span class="space-card__param">{{ space.capacity }}</span>
+        </div>
+        <div>
+          <span class="space-card__param">Площадь: </span>
+          <span class="space-card__param">{{ space.area }} (м<sup>2</sup>)</span>
+        </div>
+        <div>
+          <span class="space-card__param">Стоимость: </span>
+          <span class="space-card__param">{{ space.daily_cost }} руб/день</span>
+        </div>
+        <div>
+          <span class="space-card__param">Особенности: </span>
+          <span class="space-card__param">
+          {{ space.feature.all }}
+          {% for feature in space.feature_set.all %}
+           1
+          {% endfor %}
+          </span>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}
