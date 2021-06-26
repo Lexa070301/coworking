@@ -20,6 +20,7 @@ class Space(models.Model):
     area = models.IntegerField('Площадь')
     daily_cost = models.IntegerField('Цена за день')
     description = models.TextField('Описание')
+    photo = models.ImageField(upload_to='coworking/static/img/spaces-images', default='')
     feature = models.ManyToManyField(Feature)
 
     def __str__(self):

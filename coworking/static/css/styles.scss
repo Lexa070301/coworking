@@ -17,6 +17,7 @@ body {
 
 .main {
   margin-top: 20px;
+  padding-bottom: 20px;
 }
 
 .textarea {
@@ -140,4 +141,63 @@ ul {
 .spaces-block {
   margin-left: -10px;
   margin-right: -10px;
+}
+
+.single-space__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 20px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "fullSpace_img fullSpace_info"
+    "fullSpace_reviews fullSpace_reviews";
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "fullSpace_img"
+    "fullSpace_info"
+    "fullSpace_reviews";
+  }
+}
+
+.fullSpace_img {
+  grid-area: fullSpace_img;
+}
+
+.fullSpace_reviews {
+  grid-area: fullSpace_reviews;
+}
+
+.fullSpace_info {
+  grid-area: fullSpace_info;
+
+  .single-space-card__description {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid $grey;
+    border-top: 1px solid $grey;
+  }
+}
+
+.single-space-card__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+
+.single-space-card__list__item {
+  padding: 2px 7px;
+  border: 1px solid $grey;
+  margin-right: 5px;
+  border-radius: 5px;
+  background-color: $bg;
+}
+
+.single-space-card__img {
+  width: 100%;
+  border-radius: 5px;
+  object-fit: cover;
 }
