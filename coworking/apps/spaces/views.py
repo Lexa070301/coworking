@@ -19,10 +19,26 @@ def index(request):
 
 
 class SpaceDetailView(DetailView):
-    queryset = Space.objects.all()
+    # queryset = Space.objects.all()
     model = Space
     template_name = 'space.html'
     context_object_name = 'space'
+    def get_context_data(self, **kwargs):
+        """
+        This has been overridden to add `car` to the template context,
+        now you can use {{ car }} within the template
+        """
+        context = super().get_context_data(**kwargs)
+        context['rating'] = Rating.objects.all().order_by('-rating')
+        return context
+
+
+# class RatingDetailView(DetailView):
+#     queryset = Rating.objects.all()
+#     model = Rating
+#     template_name = 'space.html'
+#     context_object_name = 'rating'
+
 
 
 class SpaceView(ListCreateAPIView):

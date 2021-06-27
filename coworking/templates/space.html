@@ -50,10 +50,40 @@
               {% endfor %}
             </ul>
           </div>
+          <div>
+            {% if request.user.is_authenticated %}
+              <a href="#" class="btn btn-primary booking-btn">
+                Забронировать
+              </a>
+            {% endif %}
+          </div>
         </div>
         <div class="space-card single-space-card fullSpace_reviews">
           <div>
-            <span class="space-card__name">Отзывы</span>
+            <span class="space-card__name reviews__title">Отзывы</span>
+            {% if rating %}
+              <ul class="reviews">
+                {% for rating in rating.all %}
+                  {% if rating.space.id == space.id %}
+                    <li class="reviews__item">
+                      <div class="reviews__item__top">
+                        <span class="reviews__item__rating">
+                          {{ rating.rating }}
+                        </span>
+                        <span class="reviews__item__user">
+                          {{ rating.user }}
+                        </span>
+                      </div>
+                      <p class="reviews__item__text">
+                        {{ rating.review }}
+                      </p>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            {% else %}
+              <span>Нет отзывов</span>
+            {% endif %}
           </div>
         </div>
       </div>

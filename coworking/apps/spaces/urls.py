@@ -7,6 +7,7 @@ app_name = "spaces"
 urlpatterns = [
     path('', views.index),
     path('<int:pk>', views.SpaceDetailView.as_view(), name='space'),
+    # path('<int:pk>', views.RatingDetailView.as_view(), name='rating'),
     path('api/spaces', SpaceView.as_view()),
     path('api/spaces/<int:pk>', SingleSpaceView.as_view()),
     path('api/rating', RatingView.as_view()),

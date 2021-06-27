@@ -1,5 +1,6 @@
 $dark: #050028;
 $grey: #d0d0d0;
+$accent: #645FCE;
 $bg: #f9f8ff;
 $box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 
@@ -81,6 +82,10 @@ ul {
   }
 }
 
+.header__username {
+  margin-right: 10px;
+}
+
 .menu__item__link {
   margin-left: 10px;
   margin-right: 10px;
@@ -90,11 +95,15 @@ ul {
 
 .space-card-wrap {
   width: calc(100% / 4);
-  @media screen and (max-width: 1000px) {
+  margin-bottom: 20px;
+  @media screen and (max-width: 1200px) {
     width: calc(100% / 3);
   }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px) {
     width: calc(100% / 2);
+  }
+  @media screen and (max-width: 400px) {
+    width: 100%;
   }
 
   a {
@@ -114,6 +123,7 @@ ul {
 }
 
 .single-space-card {
+  position: relative;
   margin: 0 !important;
 }
 
@@ -193,11 +203,79 @@ ul {
   border: 1px solid $grey;
   margin-right: 5px;
   border-radius: 5px;
+  margin-bottom: 5px;
   background-color: $bg;
 }
 
 .single-space-card__img {
   width: 100%;
+  height: 500px;
   border-radius: 5px;
   object-fit: cover;
+}
+
+.reviews {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+  @media screen and (max-width: 1600px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.reviews__title {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.reviews__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: $bg;
+  border: 1px solid $grey;
+}
+
+.reviews__item__top {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+
+.reviews__item__rating {
+  color: $accent;
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 32px;
+}
+
+.reviews__item__user {
+  margin-left: 15px;
+  font-style: italic;
+  color: grey;
+}
+
+.reviews__item__rating,
+.reviews__item__user {
+  display: block;
+  text-align: center;
+}
+
+.reviews__item__text {
+  margin-bottom: 0;
+}
+
+.booking-btn {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  @media screen and (max-width: 600px){
+    position: static;
+    margin-top: 20px;
+  }
 }
