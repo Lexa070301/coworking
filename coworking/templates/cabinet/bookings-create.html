@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Личный кабинет - Бронирования
+{% endblock %}
+
+
+
+{% block content %}
+  {% include 'header.html' %}
+  <main class="main">
+    <div class="container-fluid">
+      <h1 class="form-title">{{ bookings.space }}</h1>
+      <form method="post" class="mx-auto common-form">
+        {% csrf_token %}
+        <label class="form-label">
+          <span>С какой даты?</span>
+          {{ form.start_date }}
+        </label>
+        <label class="form-label">
+          <span>До какой даты?</span>
+          {{ form.end_date }}
+        </label>
+        <label class="form-label">
+          <span>Какое пространсво забронировать?</span>
+          {{ form.space }}
+        </label>
+        <button class="btn btn-primary" type="submit">Забронировать</button>
+      </form>
+    </div>
+  </main>
+{% endblock %}

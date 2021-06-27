@@ -1,16 +1,16 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from django.views.generic import DetailView
+from django.views.generic import DetailView, DeleteView, UpdateView, CreateView
 from rest_framework.generics import ListCreateAPIView
 from rest_framework.generics import RetrieveUpdateDestroyAPIView
 
+from .forms import BookingUpdateForm, BookingCreateForm
 from .models import Booking, Booking_status
 from .serializers import BookingSerializer, Booking_statusSerializer
 
 
 def index(request):
-    bookings = Booking.objects.all()
-    # features = Feature.objects.all()
+    bookings = Booking.objects.all().order_by('start_date')
     data = {
         'bookings': bookings,
         # 'features': features
@@ -26,11 +26,33 @@ def index(request):
 #     }
 #     return render(request, 'cabinet/bookings.html', data)
 
-# class BookingsDelete(DetailView):
-#     # queryset = Space.objects.all()
-#     model = Booking
-#     template_name = 'cabinet/bookings.html'
-#     context_object_name = 'bookings'
+class BookingsDeleteView(DeleteView):
+    model = Booking
+    success_url = '/bookings/'
+    template_name = 'cabinet/bookings-delete.html'
+    context_object_name = 'bookings'
+
+class BookingsUpdateView(UpdateView):
+    model = Booking
+    success_url = '/bookings/'
+    template_name = 'cabinet/bookings-update.html'
+    form_class = BookingUpdateForm
+    context_object_name = 'bookings'
+
+class BookingsCreateView(CreateView):
+    model = Booking
+    success_url = '/bookings/'
+    template_name = 'cabinet/bookings-create.html'
+    form_class = BookingCreateForm
+    context_object_name = 'bookings'
+
+    def form_valid(self, form):
+        app_model = form.save(commit=False)
+        app_model.user = self.request.user
+        # app_model.user = User.objects.get(user=self.request.user) # Or explicit model
+        # Booking.save()
+        return super().form_valid(form)
+
 
 class BookingView(ListCreateAPIView):
     queryset = Booking.objects.all()

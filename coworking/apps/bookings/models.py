@@ -13,6 +13,9 @@ class Booking(models.Model):
     def __str__(self):
         return str(self.space)
 
+    def get_absolute_url(self):
+        return '/bookings/'
+
     class Meta:
         verbose_name = 'Бронь'
         verbose_name_plural = 'Бронирования'
