@@ -9,10 +9,6 @@
   {% include 'header.html' %}
   <main class="main">
     <h1 class="form-title">Войти</h1>
-    {% if form.errors %}
-      <span>some errors</span>
-    {% endif %}
-
     {% if next %}
       <p>You can't access that page</p>
     {% endif %}
@@ -27,6 +23,9 @@
         <span>Пароль:</span>
         {{ form.password }}
       </label>
+      {% if form.errors %}
+        <span class="form-error">{{ form.errors }}</span>
+      {% endif %}
       <button class="btn btn-primary" type="submit">Войти</button>
       <input type="hidden" name="next" value="{{ next }}">
     </form>

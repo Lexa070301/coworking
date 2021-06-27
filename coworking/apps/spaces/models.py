@@ -34,7 +34,7 @@ class Space(models.Model):
 class Rating(models.Model):
     rating = models.IntegerField('Рейтинг')
     review = models.TextField('Отзыв')
-    space = models.ForeignKey(Space, on_delete=models.CASCADE)
+    space = models.ForeignKey(Space, on_delete=models.CASCADE, default='')
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     def __str__(self):

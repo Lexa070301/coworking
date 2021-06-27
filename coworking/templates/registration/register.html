@@ -11,9 +11,6 @@
     <h1 class="form-title">{{ name }}</h1>
     <form class="mx-auto common-form" action="{% url 'register' %}" method="post">
       {% csrf_token %}
-      {% if form.errors %}
-        <span>some errors</span>
-      {% endif %}
 
       <label class="form-label">
         <span>Имя</span>
@@ -27,6 +24,9 @@
         <span>Повторите пароль</span>
         {{ form.password2 }}
       </label>
+      {% if form.errors %}
+        <span class="form-error">{{ form.errors }}</span>
+      {% endif %}
       <button class="btn btn-success" type="submit">Зарегистрироваться</button>
     </form>
   </main>

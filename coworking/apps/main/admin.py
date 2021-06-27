@@ -12,7 +12,7 @@ class AccountResource(resources.ModelResource):
 
 class AccountAdmin(ImportExportModelAdmin):
     resource_class = AccountResource
-    list_display = ('username', 'first_name', 'last_name', 'email', 'phone_number', 'is_staff', 'is_active', 'date_joined')
+    list_display = ('username', 'first_name', 'last_name', 'email', 'phone_number', 'user_role', 'is_staff', 'is_active', 'date_joined')
     search_fields = ('username', 'first_name', 'last_name', 'email', 'phone_number')
     filter_horizontal = ()
     list_filter = ('is_staff', 'is_active', 'date_joined')

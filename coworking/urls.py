@@ -24,6 +24,7 @@ urlpatterns = [
     path('bookings/', include('bookings.urls')),
     path('spaces/', include('spaces.urls'), name='spaces'),
     path('', include('main.urls')),
+    path('cabinet/', include('main.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
