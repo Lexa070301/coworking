@@ -6,6 +6,7 @@ app_name = "bookings"
 # app_name will help us do a reverse look-up latter.
 urlpatterns = [
     path('', views.index, name='index'),
+    path('delete/', views.delete, name='delete'),
     path('api/bookings', BookingView.as_view()),
     path('api/bookings/<int:pk>', SingleBookingView.as_view()),
     path('api/booking_status', Booking_statusView.as_view()),

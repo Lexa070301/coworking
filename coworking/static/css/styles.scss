@@ -112,6 +112,13 @@ ul {
   }
 }
 
+.card {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: $box-shadow;
+  padding: 20px;
+}
+
 .space-card {
   background-color: white;
   border-radius: 5px;
@@ -283,6 +290,45 @@ ul {
 .form-error {
   color: red;
   font-size: 12px;
-  .errorlist {}
+}
 
+.bookings-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.bookings-card-head__text {
+  color: $grey;
+}
+
+.list__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: $bg;
+  border: 1px solid $grey;
+  border-radius: 5px;
+}
+
+.list__item {
+  display: flex;
+}
+
+.list__item__field {
+  flex: 1;
+}
+
+.bookings-card__action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.bookings-card__action__delete {
+  margin-left: 10px;
 }

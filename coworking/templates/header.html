@@ -5,8 +5,14 @@
       <a href="/"><img src="{% static 'img/logo.svg' %}" class="logo" alt="Logo"/></a>
       <ul class="menu">
         <li class="menu__item">
-          <a href="/spaces" class="menu__item__link">Spaces</a>
-          <a href="/test" class="menu__item__link">Test 2</a>
+          <a href="/spaces" class="menu__item__link">Пространства</a>
+          {% if request.user.is_authenticated %}
+            <a href="/bookings" class="menu__item__link">Бронирования</a>
+            <a href="/payments" class="menu__item__link">Оплаты</a>
+            {% if request.user.user_role == 'Operator' %}
+              <a href="/dashboard" class="menu__item__link">Dashboard</a>
+            {% endif %}
+          {% endif %}
         </li>
       </ul>
       <div>
