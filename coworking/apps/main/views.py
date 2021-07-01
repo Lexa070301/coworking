@@ -29,6 +29,12 @@ def register(request):
     return render(request, 'registration/register.html', context)
 
 
+def dashboard(request):
+    users = User.objects.all()
+    context = {'users': users}
+    return render(request, 'cabinet/dashboard.html', context)
+
+
 class UserView(ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer

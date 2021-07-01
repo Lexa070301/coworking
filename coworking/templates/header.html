@@ -9,15 +9,18 @@
           {% if request.user.is_authenticated %}
             <a href="/bookings" class="menu__item__link">Бронирования</a>
 {#            <a href="/payments" class="menu__item__link">Оплаты</a>#}
-            {% if request.user.user_role == 'Operator' %}
+            {% if request.user.user_role == 'Operator' or request.user.user_role == 'Admin' %}
               <a href="/dashboard" class="menu__item__link">Dashboard</a>
+            {% endif %}
+            {% if request.user.user_role == 'Admin' %}
+              <a href="/admin" class="menu__item__link">Admin page</a>
             {% endif %}
           {% endif %}
         </li>
       </ul>
       <div>
         {% if request.user.is_authenticated %}
-          <a href="#" class="header__username">{{ user.username }}</a>
+          <a href="/bookings" class="header__username">{{ user.username }}</a>
           <a href="/accounts/logout" class="btn btn-danger">Выйти</a>
         {% else %}
           <a href="/accounts/login" class="btn btn-primary">Войти</a>

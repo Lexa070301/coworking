@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Личный кабинет - Бронирования
+{% endblock %}
+
+
+
+{% block content %}
+  {% include 'header.html' %}
+  <main class="main">
+    <div class="container-fluid">
+      {% if request.user.is_authenticated %}
+        {% if request.user.user_role == 'Operator' or request.user.user_role == 'Admin' %}
+          <h1>Dashboard</h1>
+          <div>
+            <canvas id="myChart"></canvas>
+          </div>
+          {{ users|length }}
+          {% for user in users %}
+            {#            {{ user.date_joined }}#}
+            {{ user.date_joined }}
+          {% endfor %}
+        {% endif %}
+      {% endif %}
+    </div>
+  </main>
+  <script>
+      $(document).ready(function () {
+          const labels = [
+              'January',
+              'February',
+              'March',
+              'April',
+              'May',
+              'June',
+          ];
+          const data = {
+              labels: labels,
+              datasets: [{
+                  label: 'My First dataset',
+                  backgroundColor: 'rgb(255, 99, 132)',
+                  borderColor: 'rgb(255, 99, 132)',
+                  data: [0, 10, 5, 2, 20, 30, 45],
+              }]
+          };
+          const config = {
+            type: 'line',
+            data,
+            options: {}
+          };
+          var myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+          );
+          /*var date = [];
+          var dateTimeFormat = [];
+          for (var i = 0; i < 20; i++) {
+              date[i] = new Date();
+              date[i].setDate(date[i].getDate() - i);
+              dateTimeFormat[i] = new Intl.DateTimeFormat('ru', {
+                  year: '2-digit',
+                  month: '2-digit',
+                  day: '2-digit'
+              }).format(date[i]);
+          }
+          dateTimeFormat.reverse();*/
+      });
+  </script>
+{% endblock %}
