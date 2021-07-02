@@ -41,17 +41,28 @@ def dashboard(request):
         '-date_joined__date')
 
     j = 0
+    all_users_list = [User.objects.all().count()]
     date_joined_list = []
     for i in range(numdays):
         if str(date_joined[j]['date_joined__date']) == str(date_list[i].date()):
-            date_joined_list.append(date_joined[j]['dcount']);
+            all_users = int(all_users_list[i]) - int(date_joined[j]['dcount'])
+            all_users_list.append(all_users)
+            date_joined_list.append(date_joined[j]['dcount'])
             j += 1
         else:
+            all_users_list.append(int(all_users_list[i]))
             date_joined_list.append(0)
-
     date_joined_list.reverse()
+    all_users_list = all_users_list[:-1]
+    all_users_list.reverse()
 
-    context = {'date_joined_list': date_joined_list}
+    user_roles = User.objects.all().values('user_role').annotate(usercount=Count('user_role')).order_by()
+
+    context = {
+        'date_joined_list': date_joined_list,
+        'all_users_list': all_users_list,
+        'user_roles': user_roles,
+    }
     return render(request, 'cabinet/dashboard.html', context)
 
 

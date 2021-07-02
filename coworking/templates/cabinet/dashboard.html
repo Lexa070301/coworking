@@ -20,6 +20,9 @@
             <div class="digrams__item">
               <canvas id="myChart2"></canvas>
             </div>
+            <div class="digrams__item">
+              <canvas id="myChart3"></canvas>
+            </div>
           </div>
         {% endif %}
       {% endif %}
@@ -48,19 +51,20 @@
               data: {
                   labels: [...dateTimeFormat],
                   datasets: [{
-                      label: 'Количество',
-                      backgroundColor: 'lightblue',
-                      borderColor: 'royalblue',
+                      label: 'Количество пользователей',
+                      backgroundColor: 'blue',
+                      borderColor: 'lightblue',
                       data: {{date_joined_list}},
                   }]
               },
               options: {
+                  responsive: true,
                   layout: {
                       padding: 10,
                   },
                   plugins: {
                       legend: {
-                          {#display: false,#}
+                          display: true,
                           position: 'bottom',
                       },
                       title: {
@@ -72,7 +76,7 @@
                       y: {
                           title: {
                               display: true,
-                              text: 'Количество Пользователей'
+                              text: 'Количество пользователей'
                           },
                           ticks: {
                               stepSize: 1,
@@ -92,6 +96,124 @@
               document.getElementById('myChart'),
               config
           );
+          const config2 = {
+              type: 'line',
+              data: {
+                  labels: [...dateTimeFormat],
+                  datasets: [{
+                      label: 'Количество пользователей',
+                      backgroundColor: 'green',
+                      borderColor: 'lightgreen',
+                      data: {{all_users_list}}
+                  }]
+              },
+              options: {
+                  responsive: true,
+                  layout: {
+                      padding: 10,
+                  },
+                  plugins: {
+                      legend: {
+                          display: true,
+                          position: 'bottom',
+                      },
+                      title: {
+                          display: true,
+                          text: 'Всего пользователей'
+                      }
+                  },
+                  scales: {
+                      y: {
+                          title: {
+                              display: true,
+                              text: 'Количество пользователей'
+                          },
+                          ticks: {
+                              stepSize: 1,
+                          },
+                      },
+                      x: {
+                          title: {
+                              display: true,
+                              text: 'Даты'
+                          }
+                      }
+                  },
+                  aspectRatio: aspectRatio
+              }
+          };
+          var myChart2 = new Chart(
+              document.getElementById('myChart2'),
+              config2
+          );
+          const config3 = {
+              type: 'bar',
+              data: {
+                  labels: ['Админы', 'Операторы', 'Пользователи'],
+                  datasets: [{
+                      label: 'Количество пользователей',
+                      backgroundColor: [
+                          'indigo',
+                          'firebrick',
+                          'gold',
+                      ],
+                      data: [{% for role in user_roles %}
+                          {{ role.usercount }},
+                      {% endfor %}]
+                  }]
+              },
+              options: {
+                  responsive: true,
+                  layout: {
+                      padding: 10,
+                  },
+                  plugins: {
+                      legend: {
+                          display: false,
+                          position: 'bottom',
+                      },
+                      title: {
+                          display: true,
+                          text: 'Количество пользователей по ролям'
+                      }
+                  },
+                  scales: {
+                      y: {
+                          title: {
+                              display: true,
+                              text: 'Количество пользователей'
+                          },
+                          ticks: {
+                              stepSize: 1,
+                          },
+                      },
+                      x: {
+                          title: {
+                              display: true,
+                              text: 'Роли'
+                          }
+                      }
+                  },
+                  aspectRatio: aspectRatio
+              }
+          };
+          var myChart3 = new Chart(
+              document.getElementById('myChart3'),
+              config3
+          );
+
+          function beforePrintHandler() {
+              for (var id in Chart.instances) {
+                  Chart.instances[id].resize();
+              }
+          }
+
+          window.addEventListener('beforeprint', () => {
+              myChart.resize(600, 600);
+          });
+          window.addEventListener('afterprint', () => {
+              myChart.resize();
+          });
       });
   </script>
 {% endblock %}
