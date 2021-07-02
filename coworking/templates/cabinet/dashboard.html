@@ -13,47 +13,21 @@
       {% if request.user.is_authenticated %}
         {% if request.user.user_role == 'Operator' or request.user.user_role == 'Admin' %}
           <h1>Dashboard</h1>
-          <div>
-            <canvas id="myChart"></canvas>
+          <div class="digrams">
+            <div class="digrams__item">
+              <canvas id="myChart"></canvas>
+            </div>
+            <div class="digrams__item">
+              <canvas id="myChart2"></canvas>
+            </div>
           </div>
-          {{ users|length }}
-          {% for user in users %}
-            {#            {{ user.date_joined }}#}
-            {{ user.date_joined }}
-          {% endfor %}
         {% endif %}
       {% endif %}
     </div>
   </main>
   <script>
       $(document).ready(function () {
-          const labels = [
-              'January',
-              'February',
-              'March',
-              'April',
-              'May',
-              'June',
-          ];
-          const data = {
-              labels: labels,
-              datasets: [{
-                  label: 'My First dataset',
-                  backgroundColor: 'rgb(255, 99, 132)',
-                  borderColor: 'rgb(255, 99, 132)',
-                  data: [0, 10, 5, 2, 20, 30, 45],
-              }]
-          };
-          const config = {
-            type: 'line',
-            data,
-            options: {}
-          };
-          var myChart = new Chart(
-            document.getElementById('myChart'),
-            config
-          );
-          /*var date = [];
+          var date = [];
           var dateTimeFormat = [];
           for (var i = 0; i < 20; i++) {
               date[i] = new Date();
@@ -64,7 +38,60 @@
                   day: '2-digit'
               }).format(date[i]);
           }
-          dateTimeFormat.reverse();*/
+          dateTimeFormat.reverse();
+          var aspectRatio = 2;
+          if (window.screen.width < 800) {
+              aspectRatio = 1;
+          }
+          const config = {
+              type: 'line',
+              data: {
+                  labels: [...dateTimeFormat],
+                  datasets: [{
+                      label: 'Количество',
+                      backgroundColor: 'lightblue',
+                      borderColor: 'royalblue',
+                      data: {{date_joined_list}},
+                  }]
+              },
+              options: {
+                  layout: {
+                      padding: 10,
+                  },
+                  plugins: {
+                      legend: {
+                          {#display: false,#}
+                          position: 'bottom',
+                      },
+                      title: {
+                          display: true,
+                          text: 'Количество новых пользователей за последние дни'
+                      }
+                  },
+                  scales: {
+                      y: {
+                          title: {
+                              display: true,
+                              text: 'Количество Пользователей'
+                          },
+                          ticks: {
+                              stepSize: 1,
+                          },
+                      },
+                      x: {
+                          title: {
+                              display: true,
+                              text: 'Даты'
+                          }
+                      }
+                  },
+                  aspectRatio: aspectRatio
+              }
+          };
+          var myChart = new Chart(
+              document.getElementById('myChart'),
+              config
+          );
       });
   </script>
 {% endblock %}

@@ -281,7 +281,7 @@ ul {
   position: absolute;
   right: 20px;
   top: 20px;
-  @media screen and (max-width: 600px){
+  @media screen and (max-width: 600px) {
     position: static;
     margin-top: 20px;
   }
@@ -331,4 +331,20 @@ ul {
 
 .bookings-card__action__delete {
   margin-left: 10px;
+}
+
+.digrams {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.digrams__item {
+  background-color: white;
+  box-shadow: $box-shadow;
+  border-radius: 5px;
+  padding: 20px;
 }

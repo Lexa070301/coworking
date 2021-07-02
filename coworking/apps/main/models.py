@@ -37,7 +37,7 @@ class CustomUserManager(BaseUserManager):
 class User(AbstractUser):
     # user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone_number = models.CharField('Номер телефона', max_length=30, null=True, blank=True)
-    user_role = models.CharField('Роль', max_length=50, null=True, blank=True)
+    user_role = models.CharField('Роль', max_length=50, null=True, blank=True, default="User")
     objects = CustomUserManager()
 
     class Meta:
