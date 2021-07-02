@@ -37,14 +37,13 @@ def dashboard(request):
     base = datetime.datetime.today()
     date_list = [base - datetime.timedelta(days=x) for x in range(numdays)]
     # print(date_list)
-    date_joined = User.objects.all().values('date_joined__date').annotate(dcount=Count('date_joined__date')).order_by('-date_joined__date')
+    date_joined = User.objects.all().values('date_joined__date').annotate(dcount=Count('date_joined__date')).order_by(
+        '-date_joined__date')
 
     j = 0
     date_joined_list = []
     for i in range(numdays):
         if str(date_joined[j]['date_joined__date']) == str(date_list[i].date()):
-            print('date_list: ' + str(date_list[i].date()))
-            print('date_list: ' + str(date_joined[j]['date_joined__date']))
             date_joined_list.append(date_joined[j]['dcount']);
             j += 1
         else:
