@@ -12,7 +12,7 @@
     <div class="container-fluid">
       {% if request.user.is_authenticated %}
         {% if request.user.user_role == 'Operator' or request.user.user_role == 'Admin' %}
-          <h1>Dashboard</h1>
+          <h1 class="text-start common-title">Dashboard</h1>
           <div class="digrams">
             <div class="digrams__item">
               <canvas id="myChart"></canvas>

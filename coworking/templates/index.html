@@ -1,4 +1,5 @@
 {% extends 'layout.html' %}
+{% load static %}
 
 {% block title %}
   Главная
@@ -11,8 +12,123 @@
     <div class="content">
       <div class="my-container">
         <section class="banner">
+          <div class="banner__left">
+            <h1 class="banner__title">Coworking</h1>
+            <p class="common-text banner-text">
+              Если у вас уже устоявшийся бизнес, или вы только начали развивать свой проект, откройте для себя рабочие
+              пространства, способные вдохновить ваших сотрудников на плодотворную работу.
+            </p>
+            <a href="{% url 'register' %}" class="btn common-btn accent">РЕГИСТРАЦИЯ</a>
+          </div>
+          <div class="banner__right">
+            <img class="banner__right__img" src="{% static 'img/banner-img.png' %}" alt="Banner Image">
+          </div>
+        </section>
+        <section class="numbers">
+          <div class="numbers__card">
+            <span class="numbers__card__number">11</span>
+            <p class="numbers__card__text">
+              Доступных пространств
+            </p>
+          </div>
+          <div class="numbers__card">
+            <span class="numbers__card__number">7</span>
+            <p class="numbers__card__text">
+              Лет опыта работы
+            </p>
+          </div>
+          <div class="numbers__card">
+            <span class="numbers__card__number">∞</span>
+            <p class="numbers__card__text">
+              Возможностей
+            </p>
+          </div>
+        </section>
+        <section class="about">
+          <div class="about__left">
+            <img class="about__left__img" src="{% static 'img/about-img.png' %}" alt="About Image">
+          </div>
+          <div class="about__right">
+            <h2 class="common-title">О нас</h2>
+            <p class="common-text about__text">
+              Мы быстро организуем пространство под ваши задачи, и вам не нужно будет думать о капитальных затратах и
+              офисной рутине — все включено в ставку аренды.
+              <br><br>
+              Новый подход к организации рабочего пространства, где на первом месте стоят здоровье, безопасность и
+              гибкие условия работы — вот лишь несколько мер, которые помогут вам развивать бизнес во время
+              пандемии COVID-19 и после нее.
+            </p>
+            <a href="{% url 'register' %}" class="btn common-btn accent">ЗАКАЗАТЬ</a>
+          </div>
+        </section>
+        <section class="advantages">
+          <h2 class="common-title">Преимущества</h2>
+          <div class="advantages__list">
+            <div class="advantages__card">
+              <div class="advantages__card__top">
+                <img class="advantages__card__icon" src="{% static 'img/icons/icon1.svg' %}" alt="Icon">
+                <h3 class="advantages__card__title">Эффективность</h3>
+              </div>
+              <p class="common-text">
+                Помещения уже готовы к въезду, оборудованы всем необходимым от мебели до IT-инфраструктуры.
+                Эффективные, но комфортные планировки 6-7 кв.м. на сотрудника.
+              </p>
+            </div>
+            <div class="advantages__card">
+              <div class="advantages__card__top">
+                <img class="advantages__card__icon" src="{% static 'img/icons/icon2.svg' %}" alt="Icon">
+                <h3 class="advantages__card__title">Гибкость</h3>
+              </div>
+              <p class="common-text">
+                Планировка легко меняется за выходные, а каждый офис кастомизируется под корпоративный стиль арендатора.
+                Гибкие условия по изменению арендуемой площади и выходу из договора.
+              </p>
+            </div>
+            <div class="advantages__card">
+              <div class="advantages__card__top">
+                <img class="advantages__card__icon" src="{% static 'img/icons/icon3.svg' %}" alt="Icon">
+                <h3 class="advantages__card__title">Сервис</h3>
+              </div>
+              <p class="common-text">
+                Мы полностью берем на себя обслуживание, чтобы наши партнеры не переплачивали и не отвлекались на
+                рутину.
+                От ремонтов и интернета до поставки расходников и кофе — все это включено в единый арендный платеж.
+              </p>
+            </div>
+            <div class="advantages__card">
+              <div class="advantages__card__top">
+                <img class="advantages__card__icon" src="{% static 'img/icons/icon4.svg' %}" alt="Icon">
+                <h3 class="advantages__card__title">Технологии</h3>
+              </div>
+              <p class="common-text">
+                IT-решения на базе CISCO. Переговорные с полным оборудованием для видеоконференций.
+              </p>
+            </div>
+            <div class="advantages__card">
+              <div class="advantages__card__top">
+                <img class="advantages__card__icon" src="{% static 'img/icons/icon5.svg' %}" alt="Icon">
+                <h3 class="advantages__card__title">Безопасность</h3>
+              </div>
+              <p class="common-text">
+                Полностью изолированные офисы со всей инфраструктурой внутри помещения. Охрана, видеонаблюдение и
+                контроль доступа. Полностью изолированные IT-сети и проводное соединение до каждого рабочего места.
+              </p>
+            </div>
+            <div class="advantages__card">
+              <div class="advantages__card__top">
+                <img class="advantages__card__icon" src="{% static 'img/icons/icon6.svg' %}" alt="Icon">
+                <h3 class="advantages__card__title">Безопасность</h3>
+              </div>
+              <p class="common-text">
+                Проектирование, строительство и эксплуатация по стандартам O1 Properties, крупнейшего собственника
+                офисов А-класса.
+                Производительные системы вентиляции и кондиционирования, профессиональный клининг и дезинфекция.
+              </p>
+            </div>
+          </div>
         </section>
       </div>
     </div>
   </div>
+  {% include 'header.html' %}
 {% endblock %}

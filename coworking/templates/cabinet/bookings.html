@@ -11,7 +11,7 @@
   <main class="main">
     <div class="container-fluid">
       {% if request.user.is_authenticated %}
-        <h1 class="text-start">Бронирования</h1>
+        <h1 class="text-start common-title">Бронирования</h1>
         <div class="card">
           <div class="bookings-card-head">
             <div class="list__item__field bookings-card__space">
@@ -41,9 +41,9 @@
                     <span class="list__item__text">{{ el.end_date.date }}</span>
                   </div>
                   <div class="list__item__field bookings-card__action">
-                    <a href="update/{{ el.id }}" class="btn btn-primary">Продлить</a>
+                    <a href="update/{{ el.id }}" class="btn common-btn accent">Продлить</a>
                     <a href="delete/{{ el.id }}"
-                       class="btn btn-danger bookings-card__action__delete">Удалить</a>
+                       class="btn common-btn danger bookings-card__action__delete">Удалить</a>
                   </div>
                 </li>
               {% endif %}

@@ -17,6 +17,36 @@ body {
   overflow-x: hidden;
 }
 
+.common-text {
+  font-size: 16px;
+  line-height: 150%;
+  color: $dark;
+}
+
+.common-title {
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 100%;
+  color: $dark;
+  position: relative;
+  width: fit-content;
+  @media screen and (max-width: 600px) {
+    font-size: 32px;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: $accent;
+    opacity: 0.2;
+    width: 100%;
+    height: 12px;
+    bottom: 0px;
+  }
+}
+
+
 .main {
   margin-top: 20px;
   padding-bottom: 20px;
@@ -41,6 +71,7 @@ body {
   padding-right: 30px;
   border-radius: 5px;
   border: 0;
+  width: fit-content;
 
   &:focus {
     box-shadow: none !important;
@@ -71,6 +102,11 @@ body {
 .common-form {
   max-width: 500px;
   width: 100%;
+
+  @media screen and (max-width: 600px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 
   input, textarea {
     outline: none !important;
@@ -105,6 +141,22 @@ ul {
 
 .menu {
   display: flex;
+  @media screen and (max-width: 1200px) {
+    display: none;
+  }
+}
+
+.moby {
+  .menu {
+    padding: 30px;
+    display: flex;
+
+    .menu__item__link {
+      padding: 10px 20px;
+      margin-left: 0;
+      margin-bottom: 10px;
+    }
+  }
 }
 
 .header {
@@ -116,6 +168,9 @@ ul {
     border-radius: 5px;
     background-color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    @media screen and (max-width: 1000px) {
+      padding: 10px;
+    }
   }
 }
 
@@ -127,10 +182,16 @@ ul {
 .header__username {
   text-decoration: none;
   margin-right: 20px;
+  @media screen and (max-width: 400px) {
+    margin-right: 5px;
+  }
 }
 
 .header__enter {
   margin-right: 20px;
+  @media screen and (max-width: 400px) {
+    margin-right: 5px;
+  }
 }
 
 .menu__item__link {
@@ -282,6 +343,9 @@ ul {
   height: 500px;
   border-radius: 5px;
   object-fit: cover;
+  @media screen and (max-width: 600px) {
+    height: 300px;
+  }
 }
 
 .reviews {
@@ -362,6 +426,9 @@ ul {
   margin-bottom: 15px;
   padding-left: 15px;
   padding-right: 15px;
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 }
 
 .bookings-card-head__text {
@@ -377,10 +444,10 @@ ul {
   background-color: $bg;
   border: 1px solid $grey;
   border-radius: 5px;
-}
-
-.list__item {
-  display: flex;
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .list__item__field {
@@ -390,10 +457,27 @@ ul {
 .bookings-card__action {
   display: flex;
   justify-content: flex-end;
+  @media screen and (max-width: 1200px) {
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 10px;
+  }
+  @media screen and (max-width: 600px) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 }
 
 .bookings-card__action__delete {
   margin-left: 10px;
+  @media screen and (max-width: 1200px) {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  @media screen and (max-width: 600px) {
+    margin-left: 10px;
+    margin-top: 0;
+  }
 }
 
 .digrams {
@@ -419,6 +503,12 @@ ul {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   padding-top: 100px;
   padding-bottom: 100px;
+  @media screen and (max-width: 1000px) {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 
 .my-container {
@@ -429,5 +519,186 @@ ul {
 }
 
 .banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 140px;
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+    margin-bottom: 50px;
+    align-items: flex-start;
+  }
+}
 
+.banner__title {
+  font-style: italic;
+  font-weight: bold;
+  font-size: 100px;
+  line-height: 100px;
+  text-shadow: 5px 5px 0px rgba(100, 95, 206, 0.2);
+  @media screen and (max-width: 600px) {
+    font-size: 50px;
+    line-height: 50px;
+  }
+}
+
+.banner-text {
+  max-width: 490px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  @media screen and (max-width: 600px) {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.numbers {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 44px;
+  margin-bottom: 140px;
+  @media screen and (max-width: 1000px) {
+    grid-template-columns: 1fr;
+    margin-bottom: 50px;
+    gap: 30px;
+  }
+}
+
+.numbers__card {
+  background-color: $bg;
+  box-shadow: $box-shadow;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 40px;
+}
+
+.numbers__card__number {
+  font-weight: bold;
+  font-size: 80px;
+  text-align: center;
+  line-height: 100px;
+  color: $accent;
+}
+
+.numbers__card__text {
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 31px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.about {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 140px;
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
+}
+
+.about__right {
+  padding-left: 72px;
+}
+
+.about__text {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  @media screen and (max-width: 600px) {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.advantages__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
+  margin-top: 50px;
+  @media screen and (max-width: 1000px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+.advantages__card__top {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+
+.advantages__card__icon {
+  margin-right: 20px;
+}
+
+.advantages__card__title {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 150%;
+  margin-bottom: 0;
+}
+
+.text-start {
+  margin-bottom: 20px;
+}
+
+
+.banner__right__img,
+.about__left__img {
+  width: 100%;
+}
+
+.about__left,
+.about__right,
+.banner__left,
+.banner__right {
+  flex: 1;
+  @media screen and (max-width: 1000px) {
+    width: 100%;
+  }
+}
+
+.banner__left,
+.about__left {
+  @media screen and (max-width: 1000px) {
+    margin-bottom: 30px;
+  }
+}
+
+.about__right {
+  @media screen and (max-width: 1000px) {
+    padding-left: 0;
+  }
+}
+
+#moby-button {
+  right: 10px;
+  top: 10px;
+  position: fixed;
+  border: none;
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: $box-shadow;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  @media screen and (max-width: 1200px) {
+    display: flex;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
 }

@@ -10,7 +10,7 @@
   {% include 'header.html' %}
   <main class="main">
     <div class="container-fluid">
-      <h1 class="text-start">{{ space.name }}</h1>
+      <h1 class="text-start common-title">{{ space.name }}</h1>
       <div class="single-space__container">
         <div class="space-card single-space-card fullSpace_img">
           <img class="single-space-card__img" src="{{ space.photo.url }}" alt="Картинка">
@@ -52,7 +52,7 @@
           </div>
           <div>
             {% if request.user.is_authenticated %}
-              <a href="/bookings/create" class="btn btn-primary booking-btn">
+              <a href="/bookings/create" class="btn common-btn accent booking-btn">
                 Забронировать
               </a>
             {% endif %}
