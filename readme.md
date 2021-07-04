@@ -15,4 +15,4 @@ Password: oper1234
 
 ###### Landing
 
-[Coworking - Landing](https://lexa070301.github.io/coworking/landing/)
+[Coworking - Landing](http://lexa070301.bhuser.ru/coworking/landing/)
