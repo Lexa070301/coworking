@@ -13,11 +13,6 @@ $(document).ready(function () {
         }
         return false;
     });
-    var $grid = $('.gallery__grid').masonry({
-        gutter: 30,
-        itemSelector: '.gallery__grid__item',
-        fitWidth: true
-    });
     if (typeof $grid.imagesLoaded == 'function') {
         $grid.imagesLoaded().progress(function () {
             $grid.masonry('layout');

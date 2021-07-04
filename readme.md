@@ -2,11 +2,16 @@
 
 ###### Admin panel:
 
-[http://coworking2.std-944.ist.mospolytech.ru](http://coworking2.std-944.ist.mospolytech.ru)
+[http://coworking.std-944.ist.mospolytech.ru](http://coworking.std-944.ist.mospolytech.ru)
 
+Admin account:
 Login: admin
-
 Password: admin
+
+Operator account:
+Login: Operator
+Password: oper1234
+
 
 ###### Landing
 

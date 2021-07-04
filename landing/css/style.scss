@@ -159,6 +159,7 @@ header {
   width: 400px;
   border: 3px dashed $sub_color;
 }
+
 @keyframes move {
   from {
     margin-top: 0px;
@@ -174,6 +175,7 @@ header {
   }
 
 }
+
 .goal__img {
   width: 400px;
   //margin-top: -20px;
@@ -300,6 +302,7 @@ header {
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
   border: 2px solid $sub_color;
   border-radius: 10px;
+
   &:hover, &:focus {
     .video-link__play {
       transform: scale(1.1);
@@ -327,17 +330,30 @@ header {
 .gallery__grid {
   margin: 0px auto;
   margin-top: 50px !important;
+  columns: 3;
+  @media screen and (max-width: 600px) {
+    columns: 2
+  }
+  @media screen and (max-width: 400px) {
+    columns: 1
+  }
+  gap: 20px;
 }
 
 .gallery__grid__item {
-  margin-bottom: 30px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
   @include tr;
 
   &:hover, &:focus {
     transform: translateY(-10px);
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
   }
+}
+
+
+.gallery__grid__fancy__img {
+  width: 100%;
 }
 
 footer {
