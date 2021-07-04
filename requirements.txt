@@ -1,0 +1,4 @@
+djangorestframework
+django-rest-auth
+django-import-export
+django-active-link
