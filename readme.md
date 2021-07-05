@@ -1,18 +1,22 @@
 # Coworking
 
-###### Admin panel:
+##### Website:
 
-[http://coworking.std-944.ist.mospolytech.ru](http://coworking.std-944.ist.mospolytech.ru)
+[Website](http://coworking.std-944.ist.mospolytech.ru)
 
-Admin account:
-Login: admin
-Password: admin
+###### Admin account:
+- Login: admin
+- Password: admin
 
-Operator account:
-Login: Operator
-Password: oper1234
+###### Operator account:
+- Login: Operator
+- Password: oper1234
 
 
-###### Landing
+##### Landing
 
 [Coworking - Landing](http://lexa070301.bhuser.ru/coworking/landing/)
+
+##### Figma
+
+[Figma](https://www.figma.com/file/33mkts24QAwDKq4LnzR4Om/Coworking?node-id=0%3A1)
