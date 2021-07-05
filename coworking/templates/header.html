@@ -4,7 +4,7 @@
   <div class="container-fluid">
     <div class="header__card d-flex justify-content-between align-items-center">
       <a href="/"><img src="{% static 'img/logo.svg' %}" class="logo" alt="Logo"/></a>
-      <nav id="main-nav">
+      <nav class="main-nav">
         <ul class="menu">
           <li class="menu__item">
             <a href="{% url 'index' %}" class="menu__item__link {% active_link 'index' strict=True %}">Главная</a>
