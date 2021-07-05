@@ -158,7 +158,7 @@ ul {
     }
   }
   .main-nav {
-    &:last-child {
+    &:nth-child(2) {
       display: none;
     }
   }
