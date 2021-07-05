@@ -157,6 +157,11 @@ ul {
       margin-bottom: 10px;
     }
   }
+  .main-nav {
+    &:last-child {
+      display: none;
+    }
+  }
 }
 
 .header {
